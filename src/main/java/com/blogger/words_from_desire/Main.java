@@ -30,7 +30,8 @@ public class Main {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {
-            reader.close();
+            if (reader != null)
+                reader.close();
         }
     }
 
