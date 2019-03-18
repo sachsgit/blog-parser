@@ -12,7 +12,8 @@ import com.sangupta.blogparser.domain.BlogPost;
 
 public class Main {
     private static final String FS = File.separator;
-    private static final String BLOGFILE = System.getenv("FW_WG") + FS + "Parshot" + FS + "blog-03-14-2019.xml";
+    private static final String BLOGFILE = System.getProperty("user.dir") + FS + "src" + FS 
+        + "main" + FS + "resources" + FS + "blog-03-14-2019.xml";
 
     public static void main(String[] args) throws IOException {
         FileReader reader = null;
@@ -22,7 +23,8 @@ public class Main {
             Blog blog = parser.parse(reader);
             List<BlogPost> posts = blog.getPosts();
             for (int i = 0; i < posts.size(); i++) {
-                System.out.println("Title: " + posts.get(i).getTitle() + ", Published On: " + posts.get(i).getPublishedOn().toString());
+                System.out.println("Title[" + i + "]: " + posts.get(i).getTitle() + ", Published On: " 
+                    + posts.get(i).getPublishedOn().toString());
             }
             System.out.println("Posts Count: " + posts.size());
         } catch (FileNotFoundException e) {
