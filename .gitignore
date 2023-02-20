@@ -31,3 +31,7 @@ desktop.ini
 target/*
 /target/
 logs/
+
+# Eclipse Generated File
+.factorypath    # requires for annotation-processing
+
